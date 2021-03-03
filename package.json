@@ -1,0 +1,26 @@
+{
+  "name": "github-oauth-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node -r esm -r dotenv/config server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ChengGeng97/github-oauth-backend.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ChengGeng97/github-oauth-backend/issues"
+  },
+  "homepage": "https://github.com/ChengGeng97/github-oauth-backend#readme",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "esm": "^3.2.25",
+    "express": "^4.17.1",
+    "node-fetch": "^2.6.1"
+  }
+}
