@@ -1,10 +1,11 @@
 import express from 'express';
+import cors from 'cors';
 import fetch from 'node-fetch';
 
 // Import environment variables
 const clientID = process.env.GITHUB_CLIENT_ID;
 const clientSecret = process.env.GITHUB_CLIENT_SECRET;
-const frontendAddress = process.env.FRONT_END_ADDRESS;
+const corsOrigins = process.env.CORS_ORIGINS_JSON ? JSON.parse(process.env.CORS_ORIGINS_JSON) : false;
 
 // Create application
 const app = express();
@@ -19,7 +20,10 @@ app.use(bodyParser.json());
 const PORT = process.env.port || 9000;
 app.listen(PORT, () => console.log('Listening http://localhost:' + PORT));
 
-
+app.use(cors({
+    methods: ['POST'],
+    origin: corsOrigins
+}));
 
 // Passes the code on to GitHub, then returns the access token
 app.post('/get_access_token', (req, res) => {
@@ -27,7 +31,6 @@ app.post('/get_access_token', (req, res) => {
 
     getAccessToken(code)
     .then(accessToken => {
-        res.setHeader('Access-Control-Allow-Origin', frontendAddress);
         res.end(JSON.stringify({ access_token: accessToken }));
     });
 });
