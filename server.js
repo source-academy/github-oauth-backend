@@ -26,13 +26,20 @@ app.use(cors({
 }));
 
 // Passes the code on to GitHub, then returns the access token
-app.post('/get_access_token', (req, res) => {
+app.post('/get_access_token', async (req, res) => {
     const code = req.body.code;
+    if (!code) {
+        res.status(400).end();
+        return;
+    }
 
-    getAccessToken(code)
-    .then(accessToken => {
-        res.end(JSON.stringify({ access_token: accessToken }));
-    });
+    const access_token = await getAccessToken(code);
+    if (!access_token) {
+        res.status(400).end();
+        return;
+    }
+
+    res.end(JSON.stringify({ access_token }));
 });
 
 // Exchanges the code with GitHub to receive the Access Token
