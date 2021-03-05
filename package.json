@@ -19,7 +19,6 @@
   "homepage": "https://github.com/ChengGeng97/github-oauth-backend#readme",
   "dependencies": {
     "cors": "^2.8.5",
-    "dotenv": "^8.2.0",
     "esm": "^3.2.25",
     "express": "^4.17.1",
     "node-fetch": "^2.6.1"

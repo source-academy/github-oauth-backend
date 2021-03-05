@@ -1,0 +1,6 @@
+{
+  "corsOrigin": ["https://sourceacademy.nus.edu.sg", "https://stg.sourceacademy.nus.edu.sg", "https://source-academy.github.io"],
+  "clientSecrets": {
+    "application id": "corresponding secret"
+  }
+}
