@@ -1,17 +1,17 @@
 import * as fs from 'fs';
 import * as path from 'path';
+import * as url from 'url';
 
 import express from 'express';
 import cors from 'cors';
 import fetch from 'node-fetch';
+import bodyParser from 'body-parser';
 
+const __dirname = path.dirname(url.fileURLToPath(import.meta.url));
 const config = JSON.parse(fs.readFileSync(process.env.CONFIG_PATH || path.join(__dirname, 'config.json'), 'utf8'));
 
 // Create application
 const app = express();
-
-// Create parser
-const bodyParser = require('body-parser');
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());

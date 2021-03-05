@@ -2,9 +2,9 @@
   "name": "github-oauth-backend",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "server.mjs",
   "scripts": {
-    "start": "node -r esm -r dotenv/config server.js",
+    "start": "node server.mjs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -19,7 +19,6 @@
   "homepage": "https://github.com/ChengGeng97/github-oauth-backend#readme",
   "dependencies": {
     "cors": "^2.8.5",
-    "esm": "^3.2.25",
     "express": "^4.17.1",
     "node-fetch": "^2.6.1"
   }
